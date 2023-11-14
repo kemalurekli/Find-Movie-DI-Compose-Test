@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.ui.theme
+package com.kemalurekli.findmovie.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

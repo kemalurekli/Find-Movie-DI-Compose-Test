@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.ui.theme
+package com.kemalurekli.findmovie.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
