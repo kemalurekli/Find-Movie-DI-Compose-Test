@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.presentation.movies.views
+package com.kemalurekli.findmovie.presentation.screens.movies.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

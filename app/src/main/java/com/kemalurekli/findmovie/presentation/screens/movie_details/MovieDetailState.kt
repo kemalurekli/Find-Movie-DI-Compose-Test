@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.presentation.movie_details
+package com.kemalurekli.findmovie.presentation.screens.movie_details
 
 import com.kemalurekli.findmovie.domain.model.MovieDetail
 

@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.presentation.movies.views
+package com.kemalurekli.findmovie.presentation.screens.movies.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,25 +17,23 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.kemalurekli.findmovie.presentation.Screen
-import com.kemalurekli.findmovie.presentation.movies.MoviesEvent
-import com.kemalurekli.findmovie.presentation.movies.MoviesViewModel
+import com.kemalurekli.findmovie.presentation.navigation.Screen
+import com.kemalurekli.findmovie.presentation.screens.movies.MoviesEvent
+import com.kemalurekli.findmovie.presentation.screens.movies.MoviesViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MovieScreen(
     navController: NavController,
     viewModel: MoviesViewModel = hiltViewModel()
 ) {
-
     val state = viewModel.state.value
-
-
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
     ) {
-        Column (modifier = Modifier.padding(top = 10.dp)) {
+        Column(modifier = Modifier.padding(top = 10.dp)) {
             MovieSearchBar(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -48,14 +47,13 @@ fun MovieScreen(
                         movie = movie,
                         onItemClick = {
                             navController.navigate(Screen.MovieDetailScreen.route + "/${movie.imdbID}")
+                            //navController.navigate(Screen.WatchListScreen.route)
                         }
                     )
                 }
             }
         }
     }
-
-
 }
 
 @Preview

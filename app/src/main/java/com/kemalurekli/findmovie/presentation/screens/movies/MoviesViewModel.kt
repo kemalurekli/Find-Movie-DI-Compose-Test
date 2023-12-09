@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.presentation.movies
+package com.kemalurekli.findmovie.presentation.screens.movies
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -27,9 +27,9 @@ class MoviesViewModel @Inject constructor(private val getMovieUseCase: GetMovieU
         getMovies(_state.value.search)
     }
 
-    private fun getMovies(search: String) {
+    fun getMovies(search: String) {
         job?.cancel()
-        getMovieUseCase.executeGetMovies(search).onEach {
+        getMovieUseCase.invoke(search).onEach {
             when (it) {
                 is Resource.Success -> {
                     _state.value = MoviesState(movies = it.data ?: emptyList())
@@ -46,8 +46,8 @@ class MoviesViewModel @Inject constructor(private val getMovieUseCase: GetMovieU
         }.launchIn(viewModelScope)
     }
 
-    fun onEvent(event : MoviesEvent) {
-        when(event) {
+    fun onEvent(event: MoviesEvent) {
+        when (event) {
             is MoviesEvent.Search -> {
                 getMovies(event.searchString)
             }

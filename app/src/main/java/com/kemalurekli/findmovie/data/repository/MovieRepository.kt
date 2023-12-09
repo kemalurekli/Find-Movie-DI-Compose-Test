@@ -3,12 +3,13 @@ package com.kemalurekli.findmovie.data.repository
 import com.kemalurekli.findmovie.data.remote.dto.MovieAPI
 import com.kemalurekli.findmovie.data.remote.dto.movies.MoviesDto
 import com.kemalurekli.findmovie.data.remote.dto.movies_detail.MovieDetailDto
-import com.kemalurekli.findmovie.domain.repository.MovieRepository
+import com.kemalurekli.findmovie.domain.repository.MovieRepositoryInterface
 import javax.inject.Inject
 
-class MovieRepositoryImpl
+class MovieRepository
 @Inject constructor
-    (private val api: MovieAPI) : MovieRepository {
+    (private val api: MovieAPI) :
+    MovieRepositoryInterface {
     override suspend fun getMovies(search: String): MoviesDto {
         return api.getMovies(search)
     }
