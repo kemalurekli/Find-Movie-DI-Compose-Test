@@ -2,11 +2,13 @@ package com.kemalurekli.findmovie.di
 
 import android.content.Context
 import androidx.room.Room
+import com.kemalurekli.findmovie.data.local.roomdb.WatchListDao
 import com.kemalurekli.findmovie.data.local.roomdb.WatchListDatabase
 import com.kemalurekli.findmovie.data.remote.dto.MovieAPI
-import com.kemalurekli.findmovie.data.repository.MovieRepository
-import com.kemalurekli.findmovie.domain.repository.MovieRepositoryInterface
-import com.kemalurekli.findmovie.domain.usecase.GetMovieUseCase
+import com.kemalurekli.findmovie.data.repository.local.LocalMovieRepository
+import com.kemalurekli.findmovie.data.repository.remote.RemoteMovieRepository
+import com.kemalurekli.findmovie.domain.repository.local.LocalMovieRepositoryInterFace
+import com.kemalurekli.findmovie.domain.repository.remote.RemoteMovieRepositoryInterface
 import com.kemalurekli.findmovie.util.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -25,7 +27,7 @@ object AppModule {
     @Provides
     fun injectRoomDatabase(
         @ApplicationContext context: Context
-    ) = Room.databaseBuilder(context,WatchListDatabase::class.java,"WatchListDB").build()
+    ) = Room.databaseBuilder(context, WatchListDatabase::class.java, "WatchListDB").build()
 
     @Singleton
     @Provides
@@ -43,6 +45,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMovieRepository(api: MovieAPI) = MovieRepository(api) as MovieRepositoryInterface
+    fun provideRemoteMovieRepository(api: MovieAPI) =
+        RemoteMovieRepository(api) as RemoteMovieRepositoryInterface
+
+    @Provides
+    @Singleton
+    fun provideLocalMovieRepository(dao: WatchListDao) =
+        LocalMovieRepository(dao) as LocalMovieRepositoryInterFace
 
 }

@@ -1,6 +1,5 @@
 package com.kemalurekli.findmovie.data.local.roomdb
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -13,9 +12,9 @@ interface WatchListDao {
     suspend fun insertWatchList(watchList: WatchList)
 
     @Delete
-    suspend fun deleteArt(watchList: WatchList)
+    suspend fun deleteWatchList(watchList: WatchList)
 
     @Query("SELECT * FROM watchList")
-    fun observeArts(): LiveData<List<WatchList>>
+    suspend fun getWatchList(): List<WatchList>
 
 }

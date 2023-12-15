@@ -9,6 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,14 +26,19 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import com.kemalurekli.findmovie.data.local.roomdb.WatchList
 
 
+@OptIn(ExperimentalCoilApi::class)
 @Composable
 fun MovieDetailScreen(
     movieDetailViewModel: MovieDetailViewModel = hiltViewModel()
 ) {
     val state = movieDetailViewModel.state.value
+
 
     Box(
         modifier = Modifier
@@ -41,7 +49,8 @@ fun MovieDetailScreen(
         state.movie?.let {
             Column(
                 verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.verticalScroll(rememberScrollState())
             ) {
                 Image(
                     painter = rememberImagePainter(it.Poster),
@@ -88,6 +97,11 @@ fun MovieDetailScreen(
                     modifier = Modifier.padding(14.dp),
                     color = Color.White
                 )
+                Button(onClick = {
+                    movieDetailViewModel.saveRoom()
+                }) {
+                    Text(text = "Add to Watch List")
+                }
             }
         }
         if (state.error.isNotBlank()) {

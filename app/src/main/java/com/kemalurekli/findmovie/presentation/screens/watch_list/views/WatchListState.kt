@@ -6,5 +6,4 @@ data class WatchListState(
     val isLoading : Boolean = false,
     val movies : List<WatchList> = emptyList(),
     val error : String = "",
-    val search : String = "Welcome"
 )

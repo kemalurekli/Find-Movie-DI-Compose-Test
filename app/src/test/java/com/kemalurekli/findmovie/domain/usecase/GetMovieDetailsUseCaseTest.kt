@@ -6,6 +6,7 @@ import com.google.common.truth.Truth.assertThat
 import com.kemalurekli.findmovie.data.remote.dto.movies_detail.MovieDetailDto
 import com.kemalurekli.findmovie.data.remote.dto.movies_detail.Rating
 import com.kemalurekli.findmovie.domain.repository.FakeMovieRepository
+import com.kemalurekli.findmovie.domain.usecase.remote.GetMovieDetailsUseCase
 import com.kemalurekli.findmovie.util.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest

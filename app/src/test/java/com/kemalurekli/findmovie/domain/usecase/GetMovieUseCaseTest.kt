@@ -5,6 +5,7 @@ import com.google.common.truth.Truth.assertThat
 import com.kemalurekli.findmovie.data.remote.dto.movies.MoviesDto
 import com.kemalurekli.findmovie.data.remote.dto.movies.Search
 import com.kemalurekli.findmovie.domain.repository.FakeMovieRepository
+import com.kemalurekli.findmovie.domain.usecase.remote.GetMovieUseCase
 import com.kemalurekli.findmovie.util.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collectLatest

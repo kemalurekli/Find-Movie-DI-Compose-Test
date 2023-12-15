@@ -2,9 +2,8 @@ package com.kemalurekli.findmovie.presentation.movies.views
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import com.kemalurekli.findmovie.domain.model.Movie
 import com.kemalurekli.findmovie.domain.repository.FakeMovieRepository
-import com.kemalurekli.findmovie.domain.usecase.GetMovieUseCase
+import com.kemalurekli.findmovie.domain.usecase.remote.GetMovieUseCase
 import com.kemalurekli.findmovie.presentation.screens.movies.MoviesViewModel
 import com.kemalurekli.findmovie.util.MainCoroutineRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -12,7 +12,6 @@ import com.kemalurekli.findmovie.util.Constants
 
 @Composable
 fun FindMovieNavHost(
-    modifier: Modifier = Modifier,
     navController : NavHostController
 ) {
     NavHost(
@@ -26,6 +25,9 @@ fun FindMovieNavHost(
             MovieDetailScreen()
         }
         composable(route = Screen.WatchListScreen.route) {
+            WatchListScreen(navController = navController)
+        }
+        composable(route = Screen.WatchListDetailScreen.route) {
             WatchListScreen(navController = navController)
         }
     }

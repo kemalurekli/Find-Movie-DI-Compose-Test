@@ -4,9 +4,9 @@ import com.kemalurekli.findmovie.data.remote.dto.movies.MoviesDto
 import com.kemalurekli.findmovie.data.remote.dto.movies.Search
 import com.kemalurekli.findmovie.data.remote.dto.movies_detail.MovieDetailDto
 import com.kemalurekli.findmovie.data.remote.dto.movies_detail.Rating
-import javax.inject.Inject
+import com.kemalurekli.findmovie.domain.repository.remote.RemoteMovieRepositoryInterface
 
-class FakeMovieRepository : MovieRepositoryInterface {
+class FakeMovieRepository : RemoteMovieRepositoryInterface {
     var fakeSource1 =
         MoviesDto("", listOf(Search("", "", "", "", "")), "")
 

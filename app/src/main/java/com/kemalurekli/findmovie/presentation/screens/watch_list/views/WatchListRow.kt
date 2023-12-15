@@ -1,7 +1,9 @@
 package com.kemalurekli.findmovie.presentation.screens.watch_list.views
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,21 +27,26 @@ import com.kemalurekli.findmovie.data.local.roomdb.WatchList
 import com.kemalurekli.findmovie.domain.model.Movie
 
 
-@OptIn(ExperimentalCoilApi::class)
+@OptIn(ExperimentalCoilApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun WatchListRow(
-    watchList : WatchList,
-    onItemClick : (WatchList) -> Unit
+    watchList: WatchList,
+    onItemClick: (WatchList) -> Unit,
+    onItemLongClick : (WatchList) -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onItemClick(watchList) }
+            .combinedClickable(
+                onClick = { onItemClick(watchList) },
+                onLongClick = { onItemLongClick(watchList) },
+            )
             .padding(10.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
 
-        Image(painter = rememberImagePainter(data = watchList.imageUrl),
+        Image(
+            painter = rememberImagePainter(data = watchList.imageUrl),
             contentDescription = watchList.movieName,
             modifier = Modifier
                 .padding(16.dp)
@@ -47,15 +54,20 @@ fun WatchListRow(
                 .clip(RectangleShape)
         )
 
-        Column(modifier = Modifier.align(Alignment.CenterVertically),horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(watchList.movieName,
+        Column(
+            modifier = Modifier.align(Alignment.CenterVertically),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                watchList.movieName,
                 style = MaterialTheme.typography.bodyLarge,
                 overflow = TextOverflow.Ellipsis,
                 color = Color.White,
                 textAlign = TextAlign.Center
             )
 
-            Text(watchList.imdbRating,
+            Text(
+                watchList.imdbRating,
                 style = MaterialTheme.typography.bodyLarge,
                 overflow = TextOverflow.Ellipsis,
                 color = Color.White,

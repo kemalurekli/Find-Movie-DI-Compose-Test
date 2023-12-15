@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class WatchList(
     var movieName : String,
     var imdbRating : String,
-    var year : Int,
+    var year : String,
     var imageUrl : String,
     @PrimaryKey(autoGenerate = true)
     val id : Int? = null

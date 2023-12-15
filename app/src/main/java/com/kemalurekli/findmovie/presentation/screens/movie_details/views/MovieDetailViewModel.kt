@@ -5,18 +5,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kemalurekli.findmovie.domain.usecase.GetMovieDetailsUseCase
+import com.kemalurekli.findmovie.data.local.roomdb.WatchList
+import com.kemalurekli.findmovie.domain.usecase.remote.GetMovieDetailsUseCase
+import com.kemalurekli.findmovie.domain.usecase.local.SaveWatchListUseCase
 import com.kemalurekli.findmovie.presentation.screens.movie_details.MovieDetailState
 import com.kemalurekli.findmovie.util.Constants.IMDB_ID
 import com.kemalurekli.findmovie.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailsUseCase: GetMovieDetailsUseCase,
+    private val saveWatchListUseCase: SaveWatchListUseCase,
     private val stateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -44,5 +48,12 @@ class MovieDetailViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
+    }
+
+    fun saveRoom() =  viewModelScope.launch {
+        state.value.movie.let {
+            val watchList = WatchList(it!!.Title,it.imdbRating,it.Year,it.Poster)
+            saveWatchListUseCase.invoke(watchList)
+        }
     }
 }

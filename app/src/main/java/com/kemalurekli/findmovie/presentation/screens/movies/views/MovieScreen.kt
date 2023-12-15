@@ -21,7 +21,6 @@ import com.kemalurekli.findmovie.presentation.navigation.Screen
 import com.kemalurekli.findmovie.presentation.screens.movies.MoviesEvent
 import com.kemalurekli.findmovie.presentation.screens.movies.MoviesViewModel
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MovieScreen(
     navController: NavController,

@@ -4,7 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kemalurekli.findmovie.domain.usecase.GetMovieUseCase
+import com.kemalurekli.findmovie.domain.usecase.remote.GetMovieUseCase
 import com.kemalurekli.findmovie.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job

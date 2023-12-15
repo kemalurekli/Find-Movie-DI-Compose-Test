@@ -1,8 +1,8 @@
-package com.kemalurekli.findmovie.domain.usecase
+package com.kemalurekli.findmovie.domain.usecase.remote
 
 import com.kemalurekli.findmovie.data.remote.mapper.toMovieDetail
 import com.kemalurekli.findmovie.domain.model.MovieDetail
-import com.kemalurekli.findmovie.domain.repository.MovieRepositoryInterface
+import com.kemalurekli.findmovie.domain.repository.remote.RemoteMovieRepositoryInterface
 import com.kemalurekli.findmovie.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,7 +11,7 @@ import java.io.IOError
 import javax.inject.Inject
 
 class GetMovieDetailsUseCase @Inject constructor(
-    private val repository: MovieRepositoryInterface
+    private val repository: RemoteMovieRepositoryInterface
 ) {
     fun executeGetMoviesDetails(imdbId: String): Flow<Resource<MovieDetail>> = flow {
         try {
