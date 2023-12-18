@@ -1,4 +1,4 @@
-package com.kemalurekli.findmovie.domain.usecase.remote
+package com.kemalurekli.findmovie.domain.usecase.local
 
 import com.kemalurekli.findmovie.data.local.roomdb.WatchList
 import com.kemalurekli.findmovie.domain.repository.local.LocalMovieRepositoryInterFace

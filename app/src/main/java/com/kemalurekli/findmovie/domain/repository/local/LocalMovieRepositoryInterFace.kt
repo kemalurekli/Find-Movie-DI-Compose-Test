@@ -6,4 +6,6 @@ interface LocalMovieRepositoryInterFace {
     suspend fun insertWatchList(watchList: WatchList)
     suspend fun deleteWatchList(watchList: WatchList)
     suspend fun getWatchList () : List<WatchList>
+    suspend fun getWatchDetail (imdbId : String) : WatchList
+
 }

@@ -20,4 +20,8 @@ class LocalMovieRepository @Inject constructor(
         return dao.getWatchList()
     }
 
+    override suspend fun getWatchDetail(imdbId: String): WatchList {
+        return dao.getWatchListDetail(imdbId)
+    }
+
 }

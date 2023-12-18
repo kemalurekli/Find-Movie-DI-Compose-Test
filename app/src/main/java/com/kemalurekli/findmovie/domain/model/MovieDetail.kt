@@ -4,6 +4,7 @@ import com.kemalurekli.findmovie.data.remote.dto.movies_detail.Rating
 
 data class MovieDetail(
     val Actors: String,
+    val Imdb_Id : String,
     val Awards: String,
     val Country: String,
     val Director: String,

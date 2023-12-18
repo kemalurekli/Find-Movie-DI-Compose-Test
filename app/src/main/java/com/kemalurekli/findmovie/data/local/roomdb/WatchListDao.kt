@@ -17,4 +17,6 @@ interface WatchListDao {
     @Query("SELECT * FROM watchList")
     suspend fun getWatchList(): List<WatchList>
 
+    @Query("SELECT * FROM watchList WHERE imdb_ID = :imdb_ID")
+    suspend fun getWatchListDetail(imdb_ID : String): WatchList
 }

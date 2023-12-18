@@ -24,7 +24,7 @@ class MovieDetailViewModel @Inject constructor(
     private val stateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _state = mutableStateOf<MovieDetailState>(MovieDetailState())
+    private val _state = mutableStateOf(MovieDetailState())
     val state: State<MovieDetailState> = _state
 
     init {
@@ -52,7 +52,7 @@ class MovieDetailViewModel @Inject constructor(
 
     fun saveRoom() =  viewModelScope.launch {
         state.value.movie.let {
-            val watchList = WatchList(it!!.Title,it.imdbRating,it.Year,it.Poster)
+            val watchList = WatchList(it!!.Imdb_Id,it.Title,it.imdbRating,it.Year,it.Poster)
             saveWatchListUseCase.invoke(watchList)
         }
     }

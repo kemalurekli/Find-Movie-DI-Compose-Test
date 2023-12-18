@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kemalurekli.findmovie.data.local.roomdb.WatchList
 import com.kemalurekli.findmovie.domain.usecase.local.DeleteFromWatchListUseCase
-import com.kemalurekli.findmovie.domain.usecase.remote.GetWatchListUseCase
+import com.kemalurekli.findmovie.domain.usecase.local.GetWatchListUseCase
 import com.kemalurekli.findmovie.presentation.screens.watch_list.views.WatchListState
 import com.kemalurekli.findmovie.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

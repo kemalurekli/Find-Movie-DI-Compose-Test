@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import com.kemalurekli.findmovie.presentation.screens.movie_details.views.MovieDetailScreen
 import com.kemalurekli.findmovie.presentation.screens.movies.views.MovieScreen
 import com.kemalurekli.findmovie.presentation.screens.watch_list.views.WatchListScreen
+import com.kemalurekli.findmovie.presentation.screens.watch_list_details.views.WatchListDetailScreen
 import com.kemalurekli.findmovie.util.Constants
 
 @Composable
@@ -27,8 +28,8 @@ fun FindMovieNavHost(
         composable(route = Screen.WatchListScreen.route) {
             WatchListScreen(navController = navController)
         }
-        composable(route = Screen.WatchListDetailScreen.route) {
-            WatchListScreen(navController = navController)
+        composable(route = Screen.WatchListDetailScreen.route + "/{${Constants.IMDB_ID}}") {
+            WatchListDetailScreen()
         }
     }
 }

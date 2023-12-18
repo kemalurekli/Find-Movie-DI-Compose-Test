@@ -1,6 +1,5 @@
 package com.kemalurekli.findmovie.presentation.screens.watch_list.views
 
-import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,8 +15,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.kemalurekli.findmovie.presentation.navigation.Screen
 import com.kemalurekli.findmovie.presentation.screens.watch_list.WatchListViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Composable
 fun WatchListScreen(
@@ -43,8 +42,7 @@ fun WatchListScreen(
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show()
                         },
                         onItemClick = {
-                            // Maybe go to Navigate other Screen
-                            //println("Çıktı : ${watchList.movieName}")
+                            navController.navigate(Screen.WatchListDetailScreen.route + "/${watchList.imdb_ID}")
                         }
                     )
                 }
