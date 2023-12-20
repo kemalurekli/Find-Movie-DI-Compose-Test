@@ -15,6 +15,8 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner =  "com.kemalurekli.findmovie.HiltTestRunner"
+
     }
 
     buildTypes {
@@ -117,11 +119,12 @@ dependencies {
     // Android Test Implementations
     androidTestİmplementation ("junit:junit:4.13.2")
     androidTestİmplementation ("org.mockito:mockito-android:4.7.0")
-    androidTestİmplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
     androidTestİmplementation ("androidx.arch.core:core-testing:2.2.0")
     androidTestİmplementation ("com.google.truth:truth:1.1.3")
     androidTestİmplementation ("androidx.test.espresso:espresso-core:3.5.1")
     androidTestİmplementation ("org.mockito:mockito-core:4.7.0")
     androidTestİmplementation ("com.google.dagger:hilt-android-testing:2.43.2")
+
+
 
 }
