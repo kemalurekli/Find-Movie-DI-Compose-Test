@@ -2,16 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="Tests in 'com.kemalurekli.findmovie'">
+        <State />
+      </entry>
       <entry key="WatchListDaoTest">
         <State />
       </entry>
       <entry key="app">
-        <State />
-      </entry>
-      <entry key="deleteWatchList()">
-        <State />
-      </entry>
-      <entry key="insertWatchList()">
         <State />
       </entry>
     </value>
